@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "343181715974",
+    "project_id": "artisanatn-60746",
+    "storage_bucket": "artisanatn-60746.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:343181715974:android:c2a66811c3ad31d3037187",
+        "android_client_info": {
+          "package_name": "com.example.artisanatn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9hW_JluEf_SKStnM4HnrfYmbaCSvjMXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
