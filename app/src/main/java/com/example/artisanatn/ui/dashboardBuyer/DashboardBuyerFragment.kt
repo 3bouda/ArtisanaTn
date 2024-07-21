@@ -1,4 +1,4 @@
-package com.example.artisanatn.ui.dashboard
+package com.example.artisanatn.ui.dashboardBuyer
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.artisanatn.databinding.FragmentDashboardBinding
+import com.example.artisanatn.databinding.FragmentDashboardBuyerBinding
 
-class DashboardFragment : Fragment() {
+class DashboardBuyerFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentDashboardBuyerBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val dashboardBuyerViewModel =
+            ViewModelProvider(this).get(DashboardBuyerViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentDashboardBuyerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        dashboardBuyerViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

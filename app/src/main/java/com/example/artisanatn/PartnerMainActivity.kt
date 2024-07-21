@@ -8,12 +8,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.artisanatn.databinding.ActivityMainBinding
+import com.example.artisanatn.auth.LoginActivity
+import com.example.artisanatn.databinding.ActivityPartnerMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
+class PartnerMainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityPartnerMainBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,22 +22,21 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser == null) {
-            // User is not logged in, redirect to LoginActivity
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
         }
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityPartnerMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        val navView: BottomNavigationView = binding.navPartnerView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        val navController = findNavController(R.id.nav_host_fragment_activity_buyer_main)
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_dashboard_partner, R.id.navigation_settings
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
