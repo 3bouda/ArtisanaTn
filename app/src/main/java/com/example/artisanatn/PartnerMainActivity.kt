@@ -32,7 +32,7 @@ class PartnerMainActivity : AppCompatActivity() {
 
         val navView: BottomNavigationView = binding.navPartnerView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_buyer_main)
+        val navController = findNavController(R.id.nav_host_fragment_activity_partner_main)
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(

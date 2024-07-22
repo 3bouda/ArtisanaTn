@@ -22,7 +22,6 @@ class BuyerMainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser == null) {
-            // User is not logged in, redirect to LoginActivity
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return

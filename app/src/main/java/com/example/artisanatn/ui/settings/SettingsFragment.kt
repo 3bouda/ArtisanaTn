@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.example.artisanatn.R
 import com.example.artisanatn.auth.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -16,20 +17,17 @@ import com.example.artisanatn.databinding.FragmentSettingsBinding
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var settingsViewModel: SettingsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val settingsViewModel =
-            ViewModelProvider(this).get(SettingsViewModel::class.java)
+        settingsViewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
 
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -40,8 +38,7 @@ class SettingsFragment : Fragment() {
         val logoutButton: Button = root.findViewById(R.id.button_logout)
 
         profileButton.setOnClickListener {
-            // Navigate to Profile Activity or Fragment
-            // e.g., startActivity(Intent(activity, ProfileActivity::class.java))
+            view?.findNavController()?.navigate(R.id.profileEditFragment)
         }
 
         logoutButton.setOnClickListener {

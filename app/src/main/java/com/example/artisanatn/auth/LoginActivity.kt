@@ -1,5 +1,6 @@
 package com.example.artisanatn.auth
 
+import android.util.Log
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -33,15 +34,18 @@ class LoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
+            Log.d("LoginActivity", "Attempting to log in user with email: $email")
 
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+                        Log.d("LoginActivity", "Login successful")
                         val userId = auth.currentUser?.uid
                         if (userId != null) {
                             firestore.collection("Users").document(userId).get()
                                 .addOnSuccessListener { document ->
                                     val role = document.getString("role")
+                                    Log.d("LoginActivity", "User role: $role")
                                     if (role == "Partner") {
                                         startActivity(Intent(this, PartnerMainActivity::class.java))
                                     } else {
@@ -50,11 +54,12 @@ class LoginActivity : AppCompatActivity() {
                                     finish()
                                 }
                                 .addOnFailureListener { e ->
+                                    Log.e("LoginActivity", "Failed to fetch user role", e)
                                     Toast.makeText(baseContext, "Failed to fetch user role: ${e.message}", Toast.LENGTH_SHORT).show()
                                 }
                         }
                     } else {
-                        // If login fails, display a message to the user
+                        Log.e("LoginActivity", "Authentication failed", task.exception)
                         Toast.makeText(baseContext, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }

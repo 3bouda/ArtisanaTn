@@ -2,17 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation_buyer"
-    app:startDestination="@+id/navigation_settings">
+    app:startDestination="@id/navigation_dashboard_buyer">
+
     <fragment
         android:id="@+id/navigation_dashboard_buyer"
         android:name="com.example.artisanatn.ui.dashboardBuyer.DashboardBuyerFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_dashboard_buyer"
         tools:layout="@layout/fragment_dashboard_buyer" />
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.artisanatn.ui.settings.SettingsFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
-
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="com.example.artisanatn.ProfileEditFragment"
+        android:label="title_profile_edit"
+        tools:layout="@layout/fragment_profile_edit" />
 </navigation>

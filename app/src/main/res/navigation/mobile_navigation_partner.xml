@@ -2,17 +2,32 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation_partner"
-    app:startDestination="@+id/navigation_settings">
+    app:startDestination="@id/navigation_dashboard_partner">
 
     <fragment
         android:id="@+id/navigation_dashboard_partner"
         android:name="com.example.artisanatn.ui.dashboardPartner.DashboardPartnerFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/title_dashboard_partner"
         tools:layout="@layout/fragment_dashboard_partner" />
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.artisanatn.ui.settings.SettingsFragment"
-        android:label="@string/title_home"
+        android:label="@string/title_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="com.example.artisanatn.ProfileEditFragment"
+        android:label="title_profile_edit"
+        tools:layout="@layout/fragment_profile_edit" />
+    <fragment
+        android:id="@+id/add_artisanat"
+        android:name="com.example.artisanatn.AddArtisana"
+        android:label="title_add_artisanat"
+        tools:layout="@layout/fragment_add_artisana" />
+    <fragment
+        android:id="@+id/edit_artisanat"
+        android:name="com.example.artisanatn.AddArtisana"
+        android:label="title_add_artisanat"
+        tools:layout="@layout/fragment_edit_artisana" />
+
 </navigation>
