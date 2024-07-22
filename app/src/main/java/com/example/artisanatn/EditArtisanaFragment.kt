@@ -1,3 +1,5 @@
+package com.example.artisanatn
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +31,6 @@ class EditArtisanaFragment : Fragment() {
 
         artisanaId = arguments?.getString("artisanaId")
 
-        // Load Artisana data from Firestore
         artisanaId?.let {
             firestore.collection("Artisana").document(it).get()
                 .addOnSuccessListener { document ->
