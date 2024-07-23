@@ -8,7 +8,18 @@
         android:id="@+id/navigation_dashboard_partner"
         android:name="com.example.artisanatn.ui.dashboardPartner.DashboardPartnerFragment"
         android:label="@string/title_dashboard_partner"
-        tools:layout="@layout/fragment_dashboard_partner" />
+        tools:layout="@layout/fragment_dashboard_partner" >
+        <action
+            android:id="@+id/action_dashboardPartner_to_editArtisana"
+            app:destination="@id/navigation_edit_artisana">
+            <argument
+                android:name="artisanaId"
+                app:argType="string"/>
+        </action>
+        <action
+            android:id="@+id/action_dashboardPartner_to_addArtisana"
+            app:destination="@id/add_artisanat" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.artisanatn.ui.settings.SettingsFragment"
@@ -25,9 +36,12 @@
         android:label="title_add_artisanat"
         tools:layout="@layout/fragment_add_artisana" />
     <fragment
-        android:id="@+id/edit_artisanat"
-        android:name="com.example.artisanatn.AddArtisana"
-        android:label="title_add_artisanat"
-        tools:layout="@layout/fragment_edit_artisana" />
+        android:id="@+id/navigation_edit_artisana"
+        android:name="com.example.artisanatn.EditArtisanaFragment"
+        android:label="title_edit_artisanat">
+            <argument
+            android:name="artisanaId"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

@@ -1,12 +1,16 @@
 package com.example.artisanatn
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.artisanatn.R
+import com.example.artisanatn.ui.dashboardPartner.DashboardPartnerFragmentDirections
 
-data class Artisana(val name: String, val description: String, val categorie: String)
+data class Artisana(val id: String, val name: String, val description: String, val categorie: String)
 
 class ArtisanaAdapter(private val artisanas: List<Artisana>) :
     RecyclerView.Adapter<ArtisanaAdapter.ArtisanaViewHolder>() {
@@ -28,6 +32,13 @@ class ArtisanaAdapter(private val artisanas: List<Artisana>) :
         holder.nameTextView.text = artisana.name
         holder.descriptionTextView.text = artisana.description
         holder.categorieTextView.text = artisana.categorie
+
+        holder.itemView.setOnClickListener {
+            Log.d("artisanaAdapter", artisana.id)
+            val action = DashboardPartnerFragmentDirections
+                .actionDashboardPartnerToEditArtisana(artisana.id)
+            it.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount() = artisanas.size

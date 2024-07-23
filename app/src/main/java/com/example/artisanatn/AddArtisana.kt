@@ -40,7 +40,11 @@ class AddArtisana : Fragment() {
             if (name.isEmpty() || description.isEmpty() || categorie.isEmpty() || userId == null) {
                 return@setOnClickListener
             }
+            val documentReference = firestore.collection("Artisana").document()
+            val artisanaId = documentReference.id
+
             val artisana = hashMapOf(
+                "id" to artisanaId,
                 "name" to name,
                 "description" to description,
                 "categorie" to categorie,
