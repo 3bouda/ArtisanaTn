@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.artisanatn.R
 import com.example.artisanatn.ui.dashboardPartner.DashboardPartnerFragmentDirections
 
 data class Artisana(val id: String, val name: String, val description: String, val categorie: String)
