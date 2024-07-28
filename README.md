@@ -1,0 +1,1 @@
+FirebaseAuth and FirebaseFirestore have been implemented with two distinct roles: "Buyer" and "Partner." Depending on the role assigned to the user upon signing in, the corresponding layout is displayed. Users with the "Partner" role have the ability to create, read, edit, and delete events, whereas users with the "Buyer" role can view all available artisanas.
